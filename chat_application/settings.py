@@ -40,9 +40,6 @@ genai.configure(api_key=os.getenv("GEMINI_API_KEY"))
 
 
 
-ALLOWED_HOSTS = []
-
-
 # Application definition
 
 INSTALLED_APPS = [
