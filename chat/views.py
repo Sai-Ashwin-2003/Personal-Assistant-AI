@@ -55,12 +55,12 @@ def logout_view(request):
 genai.configure(api_key=os.getenv("GEMINI_API_KEY"))
 model = genai.GenerativeModel("gemini-2.0-flash")
 
-# 2) HF embedding model
-embedding_model = SentenceTransformer("all-MiniLM-L6-v2")
 
-def embed_texts(texts):
-    """Generate embeddings using Hugging Face (list[str] -> list[list[float]])"""
-    return embedding_model.encode(texts).tolist()
+def embed_texts(text: str):
+    result = genai.embed_content(model="models/embedding-001", content=text)
+    return result["embedding"]
+
+
 
 # 3) Persistent Chroma and per-user collections
 CHROMA_DIR = getattr(settings, "CHROMA_DIR", os.path.join(getattr(settings, "BASE_DIR", os.getcwd()), "chroma_db"))
