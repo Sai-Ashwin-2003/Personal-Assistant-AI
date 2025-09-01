@@ -11,9 +11,7 @@ from .utils import load_document
 
 import os
 import google.generativeai as genai
-from sentence_transformers import SentenceTransformer
 from langchain.text_splitter import RecursiveCharacterTextSplitter
-from langchain.docstore.document import Document as LangDocument
 import chromadb
 
 def index(request):
