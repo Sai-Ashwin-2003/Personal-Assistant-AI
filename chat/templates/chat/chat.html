@@ -1,0 +1,151 @@
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chat App</title>
+  <!-- Tailwind CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Alpine.js CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
+</head>
+
+
+<body class="min-h-screen bg-gray-100 flex flex-col">
+
+  <!-- Header -->
+  <header class="bg-indigo-600 text-white py-4 text-center text-3xl font-bold shadow">
+    Personal Assistant AI
+  </header>
+
+  <!-- Main Content -->
+  <div class="flex flex-1 h-full overflow-hidden">
+
+    <!-- Sidebar -->
+    <div class="w-64 bg-gradient-to-b from-indigo-500 to-purple-600 text-white p-6 flex flex-col justify-between overflow-y-auto">
+
+        <div class="space-y-3">
+            <a href="{% url 'chat' %}"
+               class="block text-lg font-semibold border border-white/30 px-3 py-2 rounded-lg hover:bg-white/10 transition">
+                New Chat
+            </a>
+
+            <a href="{% url 'logout' %}"
+               class="block text-lg font-semibold border border-white/30 px-3 py-2 rounded-lg hover:bg-white/10 transition">
+                Logout
+            </a>
+        </div>
+
+        <!-- Chats History -->
+        <div class="flex-1">
+            <h2 class="text-lg font-semibold mt-5 mb-2 border-b border-white/30 pb-1">
+                Your Chats
+            </h2>
+            <ul class="space-y-2 pl-2">
+                {% for s in sessions %}
+                    <li>
+                        <a href="{% url 'chat_view' s.id %}"
+                           class="block px-3 py-2 rounded-lg hover:bg-white/20 transition">
+                           {{ s.title }}
+                        </a>
+                    </li>
+                {% empty %}
+                    <li class="text-sm text-gray-200">No chats yet</li>
+                {% endfor %}
+            </ul>
+        </div>
+
+    </div>
+
+    <!-- Chat Window -->
+    <div class="flex-1 flex flex-col p-6 bg-white shadow rounded-lg m-4 overflow-hidden">
+
+        <!-- Notifications -->
+        {% if messages %}
+          <div id="flash-messages" class="mb-4 space-y-2">
+            {% for message in messages %}
+              <div class="px-4 py-2 rounded-lg
+                          {% if message.tags == 'success' %} bg-green-100 text-green-800
+                          {% elif message.tags == 'error' %} bg-red-100 text-red-800
+                          {% else %} bg-gray-100 text-gray-800
+                          {% endif %}">
+                {{ message }}
+              </div>
+            {% endfor %}
+          </div>
+        {% endif %}
+
+        <!-- Messages -->
+        <div id="chat-messages" class="flex-1 overflow-y-auto space-y-3 pr-2">
+            {% if chat_messages %}
+                {% for msg in chat_messages %}
+                    <div class="p-3 rounded-2xl max-w-xl
+                                {% if msg.is_bot %} bg-indigo-100 text-gray-800 self-start
+                                {% else %} bg-purple-500 text-white self-end
+                                {% endif %}">
+                        {% if msg.is_bot %}
+                            <b>AI:</b> {{ msg.content }}
+                        {% else %}
+                            <b>You:</b> {{ msg.content }}
+                        {% endif %}
+                    </div>
+                {% endfor %}
+            {% else %}
+                <div class="flex items-center justify-center h-full">
+                    <p class="text-4xl text-gray-700 font-semibold text-center">
+                        ✨ New chat started. Type your first message...
+                    </p>
+                </div>
+            {% endif %}
+        </div>
+
+        <!-- Message + Document Upload Form -->
+        <form method="post" enctype="multipart/form-data"
+              class="flex items-center mt-4 bg-gray-50 shadow rounded-lg overflow-hidden p-2" onsubmit="return preventMultipleSubmit(this)">
+            {% csrf_token %}
+
+            <!-- Text input -->
+            <input type="text" name="message" placeholder="Type a message or question..." autofocus
+                   class="flex-1 px-4 py-3 text-gray-700 border border-gray-300 rounded-l-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition">
+
+            <!-- File upload -->
+            <input type="file" name="document" id="docInput" class="hidden" onchange="this.form.submit()">
+            <label for="docInput"
+                   class="px-3 py-3 cursor-pointer bg-purple-500 text-white font-semibold hover:bg-purple-600 transition">
+                📂
+            </label>
+
+            <!-- Send button -->
+            <button type="submit"
+                    class="px-5 py-3 bg-indigo-600 text-white font-semibold rounded-r-lg hover:bg-indigo-700 transition">
+                Send
+            </button>
+        </form>
+    </div>
+  </div>
+</body>
+
+
+<script>
+  // Auto-scroll to bottom of chat
+  const chatBox = document.getElementById("chat-messages");
+  if (chatBox) {
+    chatBox.scrollTop = chatBox.scrollHeight;
+  }
+
+  // Auto-hide flash messages after 3s
+  const flashBox = document.getElementById("flash-messages");
+  if (flashBox) {
+    setTimeout(() => {
+      flashBox.style.display = "none";
+    }, 6000);
+  }
+
+
+  let isSubmitting = false;
+function preventMultipleSubmit(form) {
+    if (isSubmitting) return false; // stop multiple submissions
+    isSubmitting = true;
+    setTimeout(() => { isSubmitting = false; }, 1000); // reset after 1s
+    return true;
+}
+</script>
+
