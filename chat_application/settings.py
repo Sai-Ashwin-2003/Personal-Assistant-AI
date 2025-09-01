@@ -36,7 +36,8 @@ import google.generativeai as genai
 
 
 # Configure Gemini with your API key
-genai.configure(api_key=os.getenv("GEMINI_API_KEY"))
+api_key=os.environ.get("GEMINI_API_KEY")
+genai.configure(api_key=api_key)
 
 
 

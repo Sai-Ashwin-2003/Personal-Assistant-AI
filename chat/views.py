@@ -50,7 +50,8 @@ def logout_view(request):
 # Gemini + Embeddings + Chroma
 # -----------------------------
 # 1) Gemini SDK (from env var)
-genai.configure(api_key=os.environ.get("GEMINI_API_KEY"))
+api_key=os.environ.get("GEMINI_API_KEY")
+genai.configure(api_key=api_key)
 model = genai.GenerativeModel("gemini-2.0-flash")
 
 
