@@ -79,6 +79,8 @@ def get_user_collection(user):
 def chat_view(request, session_id=None):
     # 1) Sidebar sessions
 
+    sessions = ChatSession.objects.filter(user=request.user).order_by("-created_at")
+
     session = None
     if session_id:
         session = get_object_or_404(ChatSession, id=session_id, user=request.user)
@@ -147,7 +149,7 @@ def chat_view(request, session_id=None):
                     # Create new chat session on first message
                     session = ChatSession.objects.create(
                         user=request.user,
-                        title=user_text[:30] if user_text else "New Chat"
+                        title=user_text[:30] if user_text else "new chat"
                     )
                     # Save the new session id in the request.session if you want to reuse it
                     request.session["session_id"] = session.id
@@ -219,7 +221,7 @@ Answer directly. Do NOT prefix with "AI:".
 
         return redirect("chat_view", session.id)
 
-    sessions = ChatSession.objects.filter(user=request.user).order_by("-created_at")
+
 
     # 3) Render
     messages_list = Message.objects.filter(session=session).order_by("timestamp")
