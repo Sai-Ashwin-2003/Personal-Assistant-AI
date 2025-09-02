@@ -17,6 +17,20 @@ import os
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
+#logging for avoiding render cold start
+LOGGING = {
+    "version": 1,
+    "disable_existing_loggers": False,
+    "handlers": {
+        "console": {"class": "logging.StreamHandler"},
+        "file": {"class": "logging.FileHandler", "filename": BASE_DIR / "django.log"},
+    },
+    "loggers": {
+        "django": {"handlers": ["console", "file"], "level": "INFO", "propagate": True},
+        "chat": {"handlers": ["console", "file"], "level": "DEBUG", "propagate": False},
+    },
+}
+
 MEDIA_URL = "/media/"
 MEDIA_ROOT = BASE_DIR / "media"
 CHROMA_DIR = BASE_DIR / "chroma_db"   # used above
