@@ -168,12 +168,15 @@ def chat_view(request, session_id=None):
         if user_text:
             try:
 
-                # if not session:
-                #     # Create new chat session on first message
-                #     session = ChatSession.objects.create(
-                #         user=request.user,
-                #         title=user_text[:30]  # first message as title (or default)
-                #     )
+                if not session_id:
+                    # Create new chat session on first message
+                    session = ChatSession.objects.create(
+                        user=request.user,
+                        title=user_text[:30]  # first message as title (or default)
+                    )
+                    request.session["session_id"]=session_id
+                else:
+                    session = ChatSession.objects.get(id=session_id)
 
                 Message.objects.create(
                     session=session,
