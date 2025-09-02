@@ -84,17 +84,6 @@ def chat_view(request, session_id=None):
         session = get_object_or_404(ChatSession, id=session_id, user=request.user)
 
 
-
-    # if session_id:
-    #     session = get_object_or_404(ChatSession, id=session_id, user=request.user)
-    # else:
-    #     session = sessions.first()
-    #     if not session:
-    #         session = ChatSession.objects.create(user=request.user, title="New Chat")
-    #         return redirect("chat_view",session_id=session_id)
-
-
-
     # 2) POST: chat/doc
     if request.method == "POST":
         user_text = request.POST.get("message", "").strip()
@@ -154,13 +143,14 @@ def chat_view(request, session_id=None):
         if user_text:
             try:
 
-                if not session_id:
+                if not session:
                     # Create new chat session on first message
                     session = ChatSession.objects.create(
                         user=request.user,
-                        title=user_text[:30]  # first message as title (or default)
+                        title=user_text[:30] if user_text else "New Chat"
                     )
-                    request.session["session_id"]=session_id
+                    # Save the new session id in the request.session if you want to reuse it
+                    request.session["session_id"] = session.id
 
 
                 Message.objects.create(
