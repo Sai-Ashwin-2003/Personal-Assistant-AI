@@ -10,7 +10,7 @@ def load_document(file_path):
     elif ext == "docx":
         loader = UnstructuredWordDocumentLoader(file_path)
     elif ext == "txt":
-        loader = TextLoader(file_path, encodincdg="utf-8")
+        loader = TextLoader(file_path, encoding="utf-8")
     else:
         raise ValueError("Unsupported file type")
 
