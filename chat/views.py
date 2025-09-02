@@ -78,11 +78,11 @@ def get_user_collection(user):
 @login_required
 def chat_view(request, session_id=None):
     # 1) Sidebar sessions
+
+    session = None
     if session_id:
         session = get_object_or_404(ChatSession, id=session_id, user=request.user)
 
-    else:
-        session = None
 
     sessions = ChatSession.objects.filter(user=request.user).order_by("-created_at")
 
@@ -164,8 +164,7 @@ def chat_view(request, session_id=None):
                         title=user_text[:30]  # first message as title (or default)
                     )
                     request.session["session_id"]=session_id
-                else:
-                    session = ChatSession.objects.get(id=session_id)
+
 
                 Message.objects.create(
                     session=session,

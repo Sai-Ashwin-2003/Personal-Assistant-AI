@@ -45,6 +45,10 @@ SECRET_KEY = os.environ.get("SECRET_KEY")
 DEBUG = os.environ.get("DEBUG", "False").lower() == "true"
 ALLOWED_HOSTS = os.environ.get("ALLOWED_HOSTS").split(" ")
 
+CSRF_TRUSTED_ORIGINS = [
+    'https://personal-assistant-ai.onrender.com'
+]
+
 import os
 import google.generativeai as genai
 
