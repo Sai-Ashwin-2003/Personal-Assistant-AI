@@ -49,28 +49,42 @@ def logout_view(request):
 # Gemini + Embeddings + Chroma
 # -----------------------------
 # 1) Gemini SDK (from env var)
-api_key=os.environ.get("GEMINI_API_KEY")
-genai.configure(api_key=api_key)
-model = genai.GenerativeModel("gemini-2.0-flash")
+
+def get_model():
+    if not hasattr(get_model, "_model"):
+        api_key = os.environ.get("GEMINI_API_KEY")
+        genai.configure(api_key=api_key)
+        get_model._model = genai.GenerativeModel("gemini-2.0-flash")
+    return get_model._model
+
+model = get_model()
+
+
+def get_chroma_client():
+    if not hasattr(get_chroma_client, "_client"):
+        CHROMA_DIR = getattr(settings, "CHROMA_DIR", os.path.join(settings.BASE_DIR, "chroma_db"))
+        os.makedirs(CHROMA_DIR, exist_ok=True)
+        get_chroma_client._client = chromadb.PersistentClient(path=CHROMA_DIR)
+    return get_chroma_client._client
+
+# # 3) Persistent Chroma and per-user collections
+# CHROMA_DIR = getattr(settings, "CHROMA_DIR", os.path.join(getattr(settings, "BASE_DIR", os.getcwd()), "chroma_db"))
+# os.makedirs(CHROMA_DIR, exist_ok=True)
+# chroma_client = chromadb.PersistentClient(path=CHROMA_DIR)
+
+def get_user_collection(user):
+    client = get_chroma_client()
+    name = f"docs_user_{user.id}"
+    try:
+        return client.get_collection(name)
+    except:
+        return client.create_collection(name)
 
 
 def embed_texts(text: str):
     result = genai.embed_content(model="models/embedding-001", content=text)
     return result["embedding"]
 
-
-
-# 3) Persistent Chroma and per-user collections
-CHROMA_DIR = getattr(settings, "CHROMA_DIR", os.path.join(getattr(settings, "BASE_DIR", os.getcwd()), "chroma_db"))
-os.makedirs(CHROMA_DIR, exist_ok=True)
-chroma_client = chromadb.PersistentClient(path=CHROMA_DIR)
-
-def get_user_collection(user):
-    name = f"docs_user_{user.id}"
-    try:
-        return chroma_client.get_collection(name)
-    except:
-        return chroma_client.create_collection(name)
 
 # -----------------------------
 # Chat view
