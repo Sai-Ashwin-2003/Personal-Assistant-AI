@@ -17,6 +17,21 @@
 
   <!-- Main content -->
   <div class="container mx-auto flex-1 flex items-center justify-center">
+      {% if messages %}
+          <div id="flash-messages" class="mb-4 space-y-2">
+            {% for message in messages %}
+              <div class="px-4 py-2 rounded-lg
+                          {% if message.tags == 'success' %} bg-green-100 text-green-800
+                          {% elif message.tags == 'error' %} bg-red-100 text-red-800
+                          {% else %} bg-gray-100 text-gray-800
+                          {% endif %}">
+                {{ message }}
+              </div>
+            {% endfor %}
+          </div>
+      {% endif %}
+
+
     <div class="w-full max-w-md bg-white p-8 rounded-lg shadow-lg">
       <h2 class="text-2xl font-semibold text-center mb-6">Login</h2>
       <form method="post" class="space-y-4">
@@ -39,3 +54,14 @@
 
 </body>
 </html>
+
+<script>
+ // Auto-hide flash messages after 3s
+  const flashBox = document.getElementById("flash-messages");
+  if (flashBox) {
+    setTimeout(() => {
+      flashBox.style.display = "none";
+    }, 3000);
+  }
+
+</script>

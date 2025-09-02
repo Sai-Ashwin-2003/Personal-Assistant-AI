@@ -14,9 +14,6 @@ import google.generativeai as genai
 from langchain.text_splitter import RecursiveCharacterTextSplitter
 import chromadb
 
-def index(request):
-    return render(request, 'chat_app/index.html')
-
 def signup_view(request):
     if request.method == 'POST':
         form = SignupForm(request.POST)
@@ -26,6 +23,7 @@ def signup_view(request):
             return redirect('login')
         else:
             messages.error(request, "Please correct the errors.")
+            return render(request, 'chat/signup.html', {'form': form})
     else:
         form = SignupForm()
     return render(request, 'chat/signup.html', {'form': form})
@@ -40,6 +38,7 @@ def login_view(request):
             return redirect('chat')
         else:
             messages.error(request, "Invalid credentials")
+            return render(request, 'chat/login.html')
     return render(request, 'chat/login.html')
 
 def logout_view(request):
