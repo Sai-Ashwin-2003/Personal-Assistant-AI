@@ -103,17 +103,6 @@ def chat_view(request, session_id=None):
         user_text = request.POST.get("message", "").strip()
         uploaded_file = request.FILES.get("document")
 
-        if not session and (user_text or uploaded_file):
-            session = ChatSession.objects.create(
-                user=request.user,
-                title=user_text[:30] if user_text else "New Chat"
-            )
-
-            # If still no session, prevent crash
-        if not session:
-            messages.error(request, "Start a new chat first before sending a message.")
-            return redirect("chat")
-
         # 2b) Handle document upload
         if uploaded_file:
             try:
