@@ -84,9 +84,6 @@ def chat_view(request, session_id=None):
         session = get_object_or_404(ChatSession, id=session_id, user=request.user)
 
 
-    sessions = ChatSession.objects.filter(user=request.user).order_by("-created_at")
-
-
 
     # if session_id:
     #     session = get_object_or_404(ChatSession, id=session_id, user=request.user)
@@ -232,7 +229,7 @@ Answer directly. Do NOT prefix with "AI:".
 
         return redirect("chat_view", session.id)
 
-
+    sessions = ChatSession.objects.filter(user=request.user).order_by("-created_at")
 
     # 3) Render
     messages_list = Message.objects.filter(session=session).order_by("timestamp")
