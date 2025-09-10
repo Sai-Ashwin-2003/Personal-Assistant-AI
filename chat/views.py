@@ -4,7 +4,7 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from django.conf import settings
-from sentence_transformers import SentenceTransformer
+#from sentence_transformers import SentenceTransformer
 
 from .models import Message, ChatSession, Document
 from .forms import SignupForm  # keep

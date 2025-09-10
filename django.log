@@ -374,3 +374,6 @@ Watching for file changes with StatReloader
 "POST /chat/96/ HTTP/1.1" 302 0
 "GET /chat/96/ HTTP/1.1" 200 26607
 C:\techjays_temp\chat_application\chat\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\techjays_temp\chat_application\chat\views.py changed, reloading.
+Watching for file changes with StatReloader
