@@ -377,3 +377,9 @@ C:\techjays_temp\chat_application\chat\views.py changed, reloading.
 Watching for file changes with StatReloader
 C:\techjays_temp\chat_application\chat\views.py changed, reloading.
 Watching for file changes with StatReloader
+Forbidden (CSRF token from POST incorrect.): /chat/95/
+"POST /chat/95/ HTTP/1.1" 403 1004
+Forbidden (CSRF token from POST incorrect.): /chat/95/
+"POST /chat/95/ HTTP/1.1" 403 1004
+"POST /chat/96/ HTTP/1.1" 302 0
+"GET /chat/96/ HTTP/1.1" 200 27238
