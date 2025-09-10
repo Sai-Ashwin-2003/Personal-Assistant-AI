@@ -383,3 +383,15 @@ Forbidden (CSRF token from POST incorrect.): /chat/95/
 "POST /chat/95/ HTTP/1.1" 403 1004
 "POST /chat/96/ HTTP/1.1" 302 0
 "GET /chat/96/ HTTP/1.1" 200 27238
+Watching for file changes with StatReloader
+"GET / HTTP/1.1" 200 1888
+"POST / HTTP/1.1" 302 0
+"GET /chat/ HTTP/1.1" 200 23231
+"POST /chat/ HTTP/1.1" 302 0
+"GET /chat/97/ HTTP/1.1" 200 23844
+"POST /chat/97/ HTTP/1.1" 302 0
+"GET /chat/97/ HTTP/1.1" 200 24890
+"POST /chat/97/ HTTP/1.1" 302 0
+"GET /chat/97/ HTTP/1.1" 200 25252
+C:\techjays_temp\chat_application\chat_application\settings.py changed, reloading.
+Watching for file changes with StatReloader

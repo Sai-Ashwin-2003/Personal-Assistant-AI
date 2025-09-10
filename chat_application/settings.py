@@ -45,7 +45,12 @@ SECRET_KEY = 'django-insecure-=rc(5lyh_ek-6ac$^%uz0dsi5(1l7a8qjl_1u0joa6#802waoj
 
 DEBUG = os.environ.get("DEBUG", "False").lower() == "true"
 
-ALLOWED_HOSTS = os.environ.get("ALLOWED_HOSTS", "127.0.0.1,localhost").split(",")
+ALLOWED_HOSTS = [
+    "localhost",
+    "127.0.0.1",
+    "personal-assistant-ai.onrender.com"
+]
+
 
 CSRF_TRUSTED_ORIGINS = [
     'https://personal-assistant-ai.onrender.com'
