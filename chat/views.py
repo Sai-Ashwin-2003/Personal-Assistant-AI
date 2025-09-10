@@ -83,23 +83,27 @@ def get_user_collection(user):
         return client.create_collection(name)
 
 
-# def embed_texts(text: str):
-#     result = genai.embed_content(model="models/embedding-001", content=text)
-#     return result["embedding"]
+def embed_texts(text: str):
+    result = genai.embed_content(
+        model="gemini-embedding-exp-03-07",
+        content=text
+    )
+    return result["embedding"]
 
-embedding_model = SentenceTransformer("sentence-transformers/paraphrase-MiniLM-L3-v2")
-
-
-def embed_texts(texts):
-    """
-    Takes a string or list of strings and returns embeddings.
-    Compatible with ChromaDB.
-    """
-    if isinstance(texts, str):
-        texts = [texts]  # wrap single string
-
-    embeddings = embedding_model.encode(texts, convert_to_tensor=False)
-    return embeddings.tolist()  # Convert to list for ChromaDB
+#Hugging Face Embedding Model
+# embedding_model = SentenceTransformer("sentence-transformers/paraphrase-MiniLM-L3-v2")
+#
+#
+# def embed_texts(texts):
+#     """
+#     Takes a string or list of strings and returns embeddings.
+#     Compatible with ChromaDB.
+#     """
+#     if isinstance(texts, str):
+#         texts = [texts]  # wrap single string
+#
+#     embeddings = embedding_model.encode(texts, convert_to_tensor=False)
+#     return embeddings.tolist()  # Convert to list for ChromaDB
 
 
 # -----------------------------

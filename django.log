@@ -350,3 +350,27 @@ Watching for file changes with StatReloader
 "GET /chat/93/ HTTP/1.1" 200 10851
 C:\techjays_temp\chat_application\chat_application\settings.py changed, reloading.
 Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+"GET / HTTP/1.1" 200 1888
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 179
+"POST / HTTP/1.1" 200 2126
+"POST / HTTP/1.1" 302 0
+"GET /chat/ HTTP/1.1" 200 22703
+"POST /chat/ HTTP/1.1" 302 0
+"GET /chat/95/ HTTP/1.1" 200 23399
+Watching for file changes with StatReloader
+"GET / HTTP/1.1" 200 1888
+"POST / HTTP/1.1" 302 0
+"GET /chat/ HTTP/1.1" 200 22967
+"POST /chat/ HTTP/1.1" 302 0
+"GET /chat/96/ HTTP/1.1" 200 23607
+"POST /chat/96/ HTTP/1.1" 302 0
+"GET /chat/96/ HTTP/1.1" 200 24653
+"POST /chat/96/ HTTP/1.1" 302 0
+"GET /chat/96/ HTTP/1.1" 200 25075
+"POST /chat/96/ HTTP/1.1" 302 0
+"GET /chat/96/ HTTP/1.1" 200 26133
+"POST /chat/96/ HTTP/1.1" 302 0
+"GET /chat/96/ HTTP/1.1" 200 26607
+C:\techjays_temp\chat_application\chat\views.py changed, reloading.
