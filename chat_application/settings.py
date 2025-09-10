@@ -42,8 +42,9 @@ CHROMA_DIR = BASE_DIR / "chroma_db"   # used above
 SECRET_KEY = 'django-insecure-=rc(5lyh_ek-6ac$^%uz0dsi5(1l7a8qjl_1u0joa6#802waoj'
 #SECRET_KEY = os.environ.get("SECRET_KEY")
 # SECURITY WARNING: don't run with debug turned on in production!
-#DEBUG = os.environ.get("DEBUG", "False").lower() == "true"
-DEBUG = "True"
+
+DEBUG = os.environ.get("DEBUG", "False").lower() == "true"
+
 ALLOWED_HOSTS = os.environ.get("ALLOWED_HOSTS", "127.0.0.1,localhost").split(",")
 
 CSRF_TRUSTED_ORIGINS = [

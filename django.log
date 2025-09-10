@@ -335,3 +335,18 @@ Watching for file changes with StatReloader
 "GET /chat/93/ HTTP/1.1" 200 6866
 "POST /chat/93/ HTTP/1.1" 302 0
 "GET /chat/93/ HTTP/1.1" 200 7599
+"POST /chat/93/ HTTP/1.1" 302 0
+"GET /chat/93/ HTTP/1.1" 200 8320
+"POST /chat/93/ HTTP/1.1" 302 0
+"GET /chat/93/ HTTP/1.1" 200 9060
+"POST /chat/93/ HTTP/1.1" 302 0
+"GET /chat/93/ HTTP/1.1" 200 9874
+"GET /chat/ HTTP/1.1" 200 4296
+"POST /chat/ HTTP/1.1" 302 0
+"GET /chat/94/ HTTP/1.1" 200 4915
+- Broken pipe from ('127.0.0.1', 49351)
+"GET /chat/93/ HTTP/1.1" 200 10142
+"POST /chat/93/ HTTP/1.1" 302 0
+"GET /chat/93/ HTTP/1.1" 200 10851
+C:\techjays_temp\chat_application\chat_application\settings.py changed, reloading.
+Watching for file changes with StatReloader
