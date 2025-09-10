@@ -16,7 +16,3 @@ class SignupForm(UserCreationForm):
         for field in self.fields.values():
             field.help_text = None
 
-class DocumentUploadForm(forms.ModelForm):
-    class Meta:
-        model = Document
-        fields = ['file', 'title']

@@ -4,6 +4,7 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from django.conf import settings
+from sentence_transformers import SentenceTransformer
 
 from .models import Message, ChatSession, Document
 from .forms import SignupForm  # keep
@@ -52,12 +53,13 @@ def logout_view(request):
 
 def get_model():
     if not hasattr(get_model, "_model"):
-        api_key = os.environ.get("GEMINI_API_KEY")
+        #api_key = os.environ.get("GEMINI_API_KEY")
+        api_key="AIzaSyAs8fCKeIaxv4YxAVTCawJAT8v0LtkW3VA"
         genai.configure(api_key=api_key)
-        get_model._model = genai.GenerativeModel("gemini-2.0-flash-lite")
+        get_model._model = genai.GenerativeModel("gemini-2.5-flash-lite")
     return get_model._model
 
-model = get_model()
+model=get_model()
 
 
 def get_chroma_client():
@@ -81,9 +83,23 @@ def get_user_collection(user):
         return client.create_collection(name)
 
 
-def embed_texts(text: str):
-    result = genai.embed_content(model="models/embedding-001", content=text)
-    return result["embedding"]
+# def embed_texts(text: str):
+#     result = genai.embed_content(model="models/embedding-001", content=text)
+#     return result["embedding"]
+
+embedding_model = SentenceTransformer("sentence-transformers/paraphrase-MiniLM-L3-v2")
+
+
+def embed_texts(texts):
+    """
+    Takes a string or list of strings and returns embeddings.
+    Compatible with ChromaDB.
+    """
+    if isinstance(texts, str):
+        texts = [texts]  # wrap single string
+
+    embeddings = embedding_model.encode(texts, convert_to_tensor=False)
+    return embeddings.tolist()  # Convert to list for ChromaDB
 
 
 # -----------------------------
@@ -178,7 +194,7 @@ def chat_view(request, session_id=None):
 
 
 
-                # Conversation context (last 20)
+                #Conversation context (last 20)
                 last_msgs = list(
                     Message.objects.filter(session=session).order_by("-timestamp")[:20]
                 )[::-1]
@@ -209,6 +225,7 @@ Answer directly. Do NOT prefix with "AI:".
 """.strip()
 
                 response = model.generate_content(prompt)
+
                 ai_text = (getattr(response, "text", None) or "").strip()
 
                 if not ai_text and getattr(response, "candidates", None):
@@ -228,7 +245,7 @@ Answer directly. Do NOT prefix with "AI:".
                 Message.objects.create(
                     session=session,
                     user=request.user,
-                    content=f"Error generating AI response: {e}",
+                    content= f"Error generating AI response: {e}",
                     is_bot=True,
                 )
 

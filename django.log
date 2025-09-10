@@ -1,0 +1,337 @@
+Watching for file changes with StatReloader
+Internal Server Error: /
+Traceback (most recent call last):
+  File "C:\techjays_temp\chat_app_env\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\techjays_temp\chat_app_env\Lib\site-packages\django\utils\deprecation.py", line 119, in __call__
+    response = self.process_request(request)
+  File "C:\techjays_temp\chat_app_env\Lib\site-packages\django\contrib\messages\middleware.py", line 12, in process_request
+    request._messages = default_storage(request)
+                        ~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\techjays_temp\chat_app_env\Lib\site-packages\django\contrib\messages\storage\__init__.py", line 12, in default_storage
+    return import_string(settings.MESSAGE_STORAGE)(request)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\techjays_temp\chat_app_env\Lib\site-packages\django\contrib\messages\storage\fallback.py", line 17, in __init__
+    storage_class(*args, **kwargs) for storage_class in self.storage_classes
+    ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\techjays_temp\chat_app_env\Lib\site-packages\django\contrib\messages\storage\cookie.py", line 92, in __init__
+    self.signer = signing.get_cookie_signer(salt=self.key_salt)
+                  ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^
+  File "C:\techjays_temp\chat_app_env\Lib\site-packages\django\core\signing.py", line 112, in get_cookie_signer
+    key=_cookie_signer_key(settings.SECRET_KEY),
+                           ^^^^^^^^^^^^^^^^^^^
+  File "C:\techjays_temp\chat_app_env\Lib\site-packages\django\conf\__init__.py", line 90, in __getattr__
+    raise ImproperlyConfigured("The SECRET_KEY setting must not be empty.")
+django.core.exceptions.ImproperlyConfigured: The SECRET_KEY setting must not be empty.
+"GET / HTTP/1.1" 500 145
+C:\techjays_temp\chat_application\chat_application\settings.py changed, reloading.
+Watching for file changes with StatReloader
+"GET / HTTP/1.1" 200 1888
+"POST / HTTP/1.1" 302 0
+"GET /chat/ HTTP/1.1" 200 14697
+"POST /chat/ HTTP/1.1" 302 0
+"GET /chat/63/ HTTP/1.1" 200 16425
+C:\techjays_temp\chat_application\chat\views.py changed, reloading.
+Watching for file changes with StatReloader
+"GET / HTTP/1.1" 200 1888
+"POST / HTTP/1.1" 302 0
+"GET /chat/ HTTP/1.1" 200 15230
+"POST /chat/ HTTP/1.1" 302 0
+"GET /chat/65/ HTTP/1.1" 200 16958
+Forbidden (CSRF token from POST incorrect.): /chat/63/
+"POST /chat/63/ HTTP/1.1" 403 1004
+"POST /chat/65/ HTTP/1.1" 302 0
+"GET /chat/65/ HTTP/1.1" 200 19423
+C:\techjays_temp\chat_application\chat_application\settings.py changed, reloading.
+Watching for file changes with StatReloader
+"GET / HTTP/1.1" 200 1888
+"POST / HTTP/1.1" 302 0
+"GET /chat/ HTTP/1.1" 200 16834
+"POST /chat/ HTTP/1.1" 302 0
+"GET /chat/71/ HTTP/1.1" 200 18562
+"POST /chat/71/ HTTP/1.1" 302 0
+"GET /chat/71/ HTTP/1.1" 200 19956
+C:\techjays_temp\chat_application\chat\views.py changed, reloading.
+Watching for file changes with StatReloader
+"GET / HTTP/1.1" 200 1888
+"POST / HTTP/1.1" 302 0
+"GET /chat/ HTTP/1.1" 200 17900
+"POST /chat/ HTTP/1.1" 302 0
+"GET /chat/75/ HTTP/1.1" 200 19634
+Watching for file changes with StatReloader
+"GET / HTTP/1.1" 200 1888
+"POST / HTTP/1.1" 302 0
+"GET /chat/ HTTP/1.1" 200 18436
+"POST /chat/ HTTP/1.1" 302 0
+"GET /chat/77/ HTTP/1.1" 200 20168
+C:\techjays_temp\chat_application\chat_application\settings.py changed, reloading.
+Watching for file changes with StatReloader
+"GET / HTTP/1.1" 200 1888
+"POST / HTTP/1.1" 302 0
+"GET /chat/ HTTP/1.1" 200 18971
+- Broken pipe from ('127.0.0.1', 64092)
+Forbidden (CSRF token from POST incorrect.): /chat/77/
+"POST /chat/77/ HTTP/1.1" 403 2503
+"POST /chat/ HTTP/1.1" 302 0
+"GET /chat/79/ HTTP/1.1" 200 20705
+C:\techjays_temp\chat_application\chat_application\settings.py changed, reloading.
+Watching for file changes with StatReloader
+"GET / HTTP/1.1" 200 1888
+"POST / HTTP/1.1" 302 0
+"GET /chat/ HTTP/1.1" 200 19507
+"POST /chat/ HTTP/1.1" 302 0
+"GET /chat/81/ HTTP/1.1" 200 21241
+Watching for file changes with StatReloader
+"GET / HTTP/1.1" 200 1888
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 3674
+"POST / HTTP/1.1" 302 0
+"GET /chat/ HTTP/1.1" 200 20043
+"POST /chat/ HTTP/1.1" 302 0
+"GET /chat/83/ HTTP/1.1" 200 21775
+C:\techjays_temp\chat_application\chat_application\settings.py changed, reloading.
+Watching for file changes with StatReloader
+"GET / HTTP/1.1" 200 1888
+"GET /chat/83/ HTTP/1.1" 200 21775
+"POST /chat/83/ HTTP/1.1" 302 0
+"GET /chat/83/ HTTP/1.1" 200 23494
+C:\techjays_temp\chat_application\chat\views.py changed, reloading.
+Watching for file changes with StatReloader
+"GET /chat/83/ HTTP/1.1" 200 23494
+"GET /chat/ HTTP/1.1" 200 20309
+"POST /chat/ HTTP/1.1" 302 0
+"GET /chat/84/ HTTP/1.1" 200 22037
+C:\techjays_temp\chat_application\chat\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\techjays_temp\chat_application\chat\views.py changed, reloading.
+Watching for file changes with StatReloader
+- Broken pipe from ('127.0.0.1', 51386)
+- Broken pipe from ('127.0.0.1', 63087)
+"GET /chat/84/ HTTP/1.1" 200 22037
+"POST /chat/84/ HTTP/1.1" 302 0
+- Broken pipe from ('127.0.0.1', 54585)
+- Broken pipe from ('127.0.0.1', 58863)
+- Broken pipe from ('127.0.0.1', 50298)
+"POST /chat/84/ HTTP/1.1" 302 0
+"GET /chat/84/ HTTP/1.1" 200 28912
+"GET / HTTP/1.1" 200 1888
+"POST / HTTP/1.1" 302 0
+"GET /chat/ HTTP/1.1" 200 20842
+"POST /chat/ HTTP/1.1" 302 0
+"GET /chat/86/ HTTP/1.1" 200 22570
+C:\techjays_temp\chat_application\chat\views.py changed, reloading.
+Watching for file changes with StatReloader
+"GET /chat/86/ HTTP/1.1" 200 22570
+Internal Server Error: /chat/86/
+Traceback (most recent call last):
+  File "C:\techjays_temp\chat_app_env\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\techjays_temp\chat_app_env\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\techjays_temp\chat_app_env\Lib\site-packages\django\contrib\auth\decorators.py", line 59, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\techjays_temp\chat_application\chat\views.py", line 194, in chat_view
+    query_embedding = embed_texts([user_text])[0]
+                      ~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\techjays_temp\chat_application\chat\views.py", line 88, in embed_texts
+    result = genai.embed_content(model="models/embedding-001", content=text)
+  File "C:\techjays_temp\chat_app_env\Lib\site-packages\google\generativeai\embedding.py", line 198, in embed_content
+    embedding_response = client.batch_embed_contents(
+        embedding_request,
+        **request_options,
+    )
+  File "C:\techjays_temp\chat_app_env\Lib\site-packages\google\ai\generativelanguage_v1beta\services\generative_service\client.py", line 1392, in batch_embed_contents
+    response = rpc(
+        request,
+    ...<2 lines>...
+        metadata=metadata,
+    )
+  File "C:\techjays_temp\chat_app_env\Lib\site-packages\google\api_core\gapic_v1\method.py", line 131, in __call__
+    return wrapped_func(*args, **kwargs)
+  File "C:\techjays_temp\chat_app_env\Lib\site-packages\google\api_core\retry\retry_unary.py", line 294, in retry_wrapped_func
+    return retry_target(
+        target,
+    ...<3 lines>...
+        on_error=on_error,
+    )
+  File "C:\techjays_temp\chat_app_env\Lib\site-packages\google\api_core\retry\retry_unary.py", line 156, in retry_target
+    next_sleep = _retry_error_helper(
+        exc,
+    ...<6 lines>...
+        timeout,
+    )
+  File "C:\techjays_temp\chat_app_env\Lib\site-packages\google\api_core\retry\retry_base.py", line 214, in _retry_error_helper
+    raise final_exc from source_exc
+  File "C:\techjays_temp\chat_app_env\Lib\site-packages\google\api_core\retry\retry_unary.py", line 147, in retry_target
+    result = target()
+  File "C:\techjays_temp\chat_app_env\Lib\site-packages\google\api_core\timeout.py", line 130, in func_with_timeout
+    return func(*args, **kwargs)
+  File "C:\techjays_temp\chat_app_env\Lib\site-packages\google\api_core\grpc_helpers.py", line 78, in error_remapped_callable
+    raise exceptions.from_grpc_error(exc) from exc
+google.api_core.exceptions.ResourceExhausted: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. [violations {
+  quota_metric: "generativelanguage.googleapis.com/embed_content_free_tier_requests"
+  quota_id: "EmbedContentRequestsPerDayPerUserPerProjectPerModel-FreeTier"
+}
+violations {
+  quota_metric: "generativelanguage.googleapis.com/embed_content_free_tier_requests"
+  quota_id: "EmbedContentRequestsPerMinutePerUserPerProjectPerModel-FreeTier"
+}
+violations {
+  quota_metric: "generativelanguage.googleapis.com/embed_content_free_tier_requests"
+  quota_id: "EmbedContentRequestsPerMinutePerProjectPerModel-FreeTier"
+}
+violations {
+  quota_metric: "generativelanguage.googleapis.com/embed_content_free_tier_requests"
+  quota_id: "EmbedContentRequestsPerDayPerProjectPerModel-FreeTier"
+}
+, links {
+  description: "Learn more about Gemini API quotas"
+  url: "https://ai.google.dev/gemini-api/docs/rate-limits"
+}
+]
+"POST /chat/86/ HTTP/1.1" 500 133867
+C:\techjays_temp\chat_application\chat\views.py changed, reloading.
+Watching for file changes with StatReloader
+"POST /chat/86/ HTTP/1.1" 302 0
+"GET /chat/86/ HTTP/1.1" 200 23469
+"POST /chat/86/ HTTP/1.1" 302 0
+"GET /chat/86/ HTTP/1.1" 200 24083
+"POST /chat/86/ HTTP/1.1" 302 0
+"GET /chat/86/ HTTP/1.1" 200 24689
+C:\techjays_temp\chat_application\chat\views.py changed, reloading.
+Watching for file changes with StatReloader
+- Broken pipe from ('127.0.0.1', 53561)
+"GET /chat/86/ HTTP/1.1" 200 24689
+- Broken pipe from ('127.0.0.1', 53408)
+"POST /chat/86/ HTTP/1.1" 302 0
+"GET /chat/86/ HTTP/1.1" 200 25324
+"POST /chat/86/ HTTP/1.1" 302 0
+"GET /chat/86/ HTTP/1.1" 200 26101
+C:\techjays_temp\chat_application\chat\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\techjays_temp\chat_application\chat\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\techjays_temp\chat_application\chat\views.py changed, reloading.
+Watching for file changes with StatReloader
+"GET / HTTP/1.1" 200 1888
+"POST / HTTP/1.1" 302 0
+"GET /chat/ HTTP/1.1" 200 21375
+"POST /chat/ HTTP/1.1" 302 0
+"GET /chat/88/ HTTP/1.1" 200 22014
+"POST /chat/88/ HTTP/1.1" 302 0
+"GET /chat/88/ HTTP/1.1" 200 22642
+"POST /chat/88/ HTTP/1.1" 302 0
+"GET /chat/88/ HTTP/1.1" 200 23263
+"POST /chat/88/ HTTP/1.1" 302 0
+"GET /chat/88/ HTTP/1.1" 200 24309
+"POST /chat/88/ HTTP/1.1" 302 0
+"GET /chat/88/ HTTP/1.1" 200 24593
+C:\techjays_temp\chat_application\chat\views.py changed, reloading.
+Watching for file changes with StatReloader
+"GET /chat/88/ HTTP/1.1" 200 24593
+"POST /chat/88/ HTTP/1.1" 302 0
+"GET /chat/88/ HTTP/1.1" 200 25297
+"POST /chat/88/ HTTP/1.1" 302 0
+"GET /chat/88/ HTTP/1.1" 200 25988
+C:\techjays_temp\chat_application\chat\views.py changed, reloading.
+Watching for file changes with StatReloader
+"GET /chat/86/ HTTP/1.1" 200 26634
+"POST /chat/86/ HTTP/1.1" 302 0
+"GET /chat/86/ HTTP/1.1" 200 27320
+"GET /chat/ HTTP/1.1" 200 21639
+"POST /chat/ HTTP/1.1" 302 0
+"GET /chat/89/ HTTP/1.1" 200 22331
+C:\techjays_temp\chat_application\chat\views.py changed, reloading.
+Watching for file changes with StatReloader
+"GET /chat/89/ HTTP/1.1" 200 22331
+"POST /chat/89/ HTTP/1.1" 302 0
+"GET /chat/89/ HTTP/1.1" 200 23016
+C:\techjays_temp\chat_application\chat\views.py changed, reloading.
+Watching for file changes with StatReloader
+"GET /chat/89/ HTTP/1.1" 200 23016
+"POST /chat/89/ HTTP/1.1" 302 0
+"GET /chat/89/ HTTP/1.1" 200 23701
+Watching for file changes with StatReloader
+"GET /chat/89/ HTTP/1.1" 200 23701
+"POST /chat/89/ HTTP/1.1" 302 0
+"GET /chat/89/ HTTP/1.1" 200 24332
+"POST /chat/89/ HTTP/1.1" 302 0
+"GET /chat/89/ HTTP/1.1" 200 25097
+"POST /chat/89/ HTTP/1.1" 302 0
+"GET /chat/89/ HTTP/1.1" 200 26143
+"POST /chat/89/ HTTP/1.1" 302 0
+"GET /chat/89/ HTTP/1.1" 200 26697
+"POST /chat/89/ HTTP/1.1" 302 0
+"GET /chat/89/ HTTP/1.1" 200 27747
+"POST /chat/89/ HTTP/1.1" 302 0
+"GET /chat/89/ HTTP/1.1" 200 28051
+"POST /chat/89/ HTTP/1.1" 302 0
+"GET /chat/89/ HTTP/1.1" 200 28688
+"GET /chat/ HTTP/1.1" 200 21903
+"GET / HTTP/1.1" 200 1888
+"POST / HTTP/1.1" 302 0
+"GET /chat/ HTTP/1.1" 200 22172
+"POST /chat/ HTTP/1.1" 302 0
+"GET /chat/91/ HTTP/1.1" 200 22812
+C:\techjays_temp\chat_application\chat\forms.py changed, reloading.
+Watching for file changes with StatReloader
+C:\techjays_temp\chat_application\chat\apps.py changed, reloading.
+Watching for file changes with StatReloader
+C:\techjays_temp\chat_application\chat\models.py changed, reloading.
+Watching for file changes with StatReloader
+"GET / HTTP/1.1" 200 1888
+"POST / HTTP/1.1" 302 0
+"GET /chat/ HTTP/1.1" 200 22436
+"POST /chat/ HTTP/1.1" 302 0
+"GET /chat/92/ HTTP/1.1" 200 23051
+"GET / HTTP/1.1" 200 1888
+"GET /signup/ HTTP/1.1" 200 2224
+"POST /signup/ HTTP/1.1" 302 0
+- Broken pipe from ('127.0.0.1', 60743)
+- Broken pipe from ('127.0.0.1', 55109)
+- Broken pipe from ('127.0.0.1', 59347)
+- Broken pipe from ('127.0.0.1', 56950)
+"POST /signup/ HTTP/1.1" 200 2837
+"GET / HTTP/1.1" 200 1888
+Not Found: /favicon.ico
+"POST / HTTP/1.1" 302 0
+"GET / HTTP/1.1" 200 1888
+"GET / HTTP/1.1" 200 1888
+"GET / HTTP/1.1" 200 1888
+"GET / HTTP/1.1" 200 1888
+"GET / HTTP/1.1" 200 1888
+"GET / HTTP/1.1" 200 1888
+"GET / HTTP/1.1" 200 1888
+"POST / HTTP/1.1" 302 0
+C:\techjays_temp\chat_application\chat\apps.py changed, reloading.
+- Broken pipe from ('127.0.0.1', 50522)
+- Broken pipe from ('127.0.0.1', 61282)
+- Broken pipe from ('127.0.0.1', 58940)
+- Broken pipe from ('127.0.0.1', 55913)
+Not Found: /favicon.ico
+Not Found: /favicon.ico
+Not Found: /favicon.ico
+Not Found: /favicon.ico
+Not Found: /favicon.ico
+Not Found: /favicon.ico
+Not Found: /favicon.ico
+- Broken pipe from ('127.0.0.1', 61186)
+- Broken pipe from ('127.0.0.1', 58657)
+- Broken pipe from ('127.0.0.1', 65083)
+- Broken pipe from ('127.0.0.1', 64107)
+- Broken pipe from ('127.0.0.1', 55451)
+- Broken pipe from ('127.0.0.1', 60343)
+"GET /favicon.ico HTTP/1.1" 404 3674
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+"GET / HTTP/1.1" 200 1888
+"POST / HTTP/1.1" 302 0
+"GET /chat/ HTTP/1.1" 200 4115
+"POST /chat/ HTTP/1.1" 302 0
+"GET /chat/93/ HTTP/1.1" 200 4958
+"POST /chat/93/ HTTP/1.1" 302 0
+"GET /chat/93/ HTTP/1.1" 200 5816
+"POST /chat/93/ HTTP/1.1" 302 0
+"GET /chat/93/ HTTP/1.1" 200 6866
+"POST /chat/93/ HTTP/1.1" 302 0
+"GET /chat/93/ HTTP/1.1" 200 7599

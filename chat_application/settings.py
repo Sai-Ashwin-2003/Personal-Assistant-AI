@@ -39,11 +39,12 @@ CHROMA_DIR = BASE_DIR / "chroma_db"   # used above
 # See https://docs.djangoproject.com/en/5.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-#SECRET_KEY = 'django-insecure-=rc(5lyh_ek-6ac$^%uz0dsi5(1l7a8qjl_1u0joa6#802waoj'
-SECRET_KEY = os.environ.get("SECRET_KEY")
+SECRET_KEY = 'django-insecure-=rc(5lyh_ek-6ac$^%uz0dsi5(1l7a8qjl_1u0joa6#802waoj'
+#SECRET_KEY = os.environ.get("SECRET_KEY")
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = os.environ.get("DEBUG", "False").lower() == "true"
-ALLOWED_HOSTS = os.environ.get("ALLOWED_HOSTS").split(" ")
+#DEBUG = os.environ.get("DEBUG", "False").lower() == "true"
+DEBUG = "True"
+ALLOWED_HOSTS = os.environ.get("ALLOWED_HOSTS", "127.0.0.1,localhost").split(",")
 
 CSRF_TRUSTED_ORIGINS = [
     'https://personal-assistant-ai.onrender.com'
@@ -54,7 +55,8 @@ import google.generativeai as genai
 
 
 # Configure Gemini with your API key
-api_key=os.environ.get("GEMINI_API_KEY")
+#api_key=os.environ.get("GEMINI_API_KEY")
+api_key="AIzaSyAs8fCKeIaxv4YxAVTCawJAT8v0LtkW3VA"
 genai.configure(api_key=api_key)
 
 
@@ -117,10 +119,10 @@ DATABASES = {
      }
 }
 
-database_url = os.environ.get("DATABASE_URL")
-DATABASES["default"] = dj_database_url.parse(database_url)
+#database_url = os.environ.get("DATABASE_URL")
+#DATABASES["default"] = dj_database_url.parse(database_url)
 
-#DATABASES["default"] = dj_database_url.parse("postgresql://chat_db_xtu4_user:NonugckYAm4fvAt4XWEM9AJzg95NCBwi@dpg-d2qq6l3e5dus73ce1750-a.oregon-postgres.render.com/chat_db_xtu4")
+DATABASES["default"] = dj_database_url.parse("postgresql://chat_db_xtu4_user:NonugckYAm4fvAt4XWEM9AJzg95NCBwi@dpg-d2qq6l3e5dus73ce1750-a.oregon-postgres.render.com/chat_db_xtu4")
 
 #
 # Password validation
