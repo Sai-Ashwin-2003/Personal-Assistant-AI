@@ -54,7 +54,7 @@ def get_model():
     if not hasattr(get_model, "_model"):
         api_key = os.environ.get("GEMINI_API_KEY")
         genai.configure(api_key=api_key)
-        get_model._model = genai.GenerativeModel("gemini-2.0-flash")
+        get_model._model = genai.GenerativeModel("gemini-2.5-flash")
     return get_model._model
 
 model = get_model()
