@@ -395,3 +395,22 @@ Watching for file changes with StatReloader
 "GET /chat/97/ HTTP/1.1" 200 25252
 C:\techjays_temp\chat_application\chat_application\settings.py changed, reloading.
 Watching for file changes with StatReloader
+"POST /chat/97/ HTTP/1.1" 302 0
+"GET /chat/97/ HTTP/1.1" 200 26116
+"POST /chat/97/ HTTP/1.1" 302 0
+"GET /chat/97/ HTTP/1.1" 200 27166
+"POST /chat/97/ HTTP/1.1" 302 0
+"GET /chat/97/ HTTP/1.1" 200 27509
+"POST /chat/97/ HTTP/1.1" 302 0
+"GET /chat/97/ HTTP/1.1" 200 28141
+"POST /chat/97/ HTTP/1.1" 302 0
+"GET /chat/97/ HTTP/1.1" 200 28512
+"POST /chat/97/ HTTP/1.1" 302 0
+"GET /chat/97/ HTTP/1.1" 200 29187
+"GET /chat/97/ HTTP/1.1" 200 28862
+"POST /chat/97/ HTTP/1.1" 302 0
+"GET /chat/97/ HTTP/1.1" 200 29920
+"POST /chat/97/ HTTP/1.1" 302 0
+"GET /chat/97/ HTTP/1.1" 200 30915
+C:\techjays_temp\chat_application\chat\views.py changed, reloading.
+Watching for file changes with StatReloader

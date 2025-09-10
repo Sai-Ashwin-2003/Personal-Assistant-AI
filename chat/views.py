@@ -83,12 +83,18 @@ def get_user_collection(user):
         return client.create_collection(name)
 
 
-def embed_texts(text: str):
-    result = genai.embed_content(
-        model="gemini-embedding-exp-03-07",
-        content=text
-    )
-    return result["embedding"]
+def embed_texts(texts):
+    if isinstance(texts, str):
+        texts = [texts]
+
+    embeddings = []
+    for t in texts:
+        result = genai.embed_content(
+            model="gemini-embedding-exp-03-07",
+            content=t
+        )
+        embeddings.append(result["embedding"])
+    return embeddings
 
 #Hugging Face Embedding Model
 # embedding_model = SentenceTransformer("sentence-transformers/paraphrase-MiniLM-L3-v2")
