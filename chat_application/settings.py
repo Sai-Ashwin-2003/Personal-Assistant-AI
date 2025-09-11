@@ -48,12 +48,12 @@ DEBUG = os.environ.get("DEBUG", "False").lower() == "true"
 ALLOWED_HOSTS = [
     "localhost",
     "127.0.0.1",
-    "personal-assistant-ai.onrender.com"
+    "https://personal-assistant-ai-juv3.onrender.com"
 ]
 
 
 CSRF_TRUSTED_ORIGINS = [
-    'https://personal-assistant-ai.onrender.com'
+    'https://personal-assistant-ai-juv3.onrender.com'
 ]
 
 import os
@@ -128,7 +128,8 @@ DATABASES = {
 #database_url = os.environ.get("DATABASE_URL")
 #DATABASES["default"] = dj_database_url.parse(database_url)
 
-DATABASES["default"] = dj_database_url.parse("postgresql://chat_db_xtu4_user:NonugckYAm4fvAt4XWEM9AJzg95NCBwi@dpg-d2qq6l3e5dus73ce1750-a.oregon-postgres.render.com/chat_db_xtu4")
+DATABASES["default"] = dj_database_url.parse("postgresql://chat_db_vil4_user:D3Ats37OCTWMnSSr3gEu31ijsKSN3PLo@dpg-d315gnbuibrs73a7si9g-a.oregon-postgres.render.com/chat_db_vil4")
+#DATABASES["default"] = dj_database_url.parse("postgresql://chat_db_xtu4_user:NonugckYAm4fvAt4XWEM9AJzg95NCBwi@dpg-d2qq6l3e5dus73ce1750-a.oregon-postgres.render.com/chat_db_xtu4")
 
 #
 # Password validation
