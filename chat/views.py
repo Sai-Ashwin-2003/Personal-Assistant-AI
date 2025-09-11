@@ -131,6 +131,15 @@ def chat_view(request, session_id=None):
         user_text = request.POST.get("message", "").strip()
         uploaded_file = request.FILES.get("document")
 
+        if not session:
+            # Create new chat session on first message
+            session = ChatSession.objects.create(
+                user=request.user,
+                title=user_text[:30] if user_text else "Document"
+            )
+            # Save the new session id in the request.session if you want to reuse it
+            request.session["session_id"] = session.id
+
         # 2b) Handle document upload
         if uploaded_file:
             try:
@@ -155,7 +164,7 @@ def chat_view(request, session_id=None):
                 # Per-user collection; add with IDs + metadata
                 collection = get_user_collection(request.user)
                 ids = [f"{doc_model.id}-{i}" for i in range(len(texts))]
-                metadatas = [{"title": doc_model.title, "doc_id": doc_model.id, "user_id": request.user.id, "session_id": session.id,}] * len(texts)
+                metadatas = [{"title": doc_model.title, "doc_id": str(doc_model.id), "user_id": str(request.user.id), "session_id": str(session.id),}] * len(texts)
 
                 collection.add(
                     ids=ids,
@@ -185,16 +194,6 @@ def chat_view(request, session_id=None):
         if user_text:
             try:
 
-                if not session:
-                    # Create new chat session on first message
-                    session = ChatSession.objects.create(
-                        user=request.user,
-                        title=user_text[:30] if user_text else "new chat"
-                    )
-                    # Save the new session id in the request.session if you want to reuse it
-                    request.session["session_id"] = session.id
-
-
                 Message.objects.create(
                     session=session,
                     user=request.user,
@@ -215,7 +214,7 @@ def chat_view(request, session_id=None):
                 # Retrieve top 3 user-specific docs from Chroma
                 collection = get_user_collection(request.user)
                 query_embedding = embed_texts([user_text])[0]
-                results = collection.query(query_embeddings=[query_embedding], n_results=3, where={"session_id": session.id})
+                results = collection.query(query_embeddings=[query_embedding], n_results=3, where={"session_id": str(session.id)})
                 retrieved = results.get("documents", [[]])[0]
                 context_docs = "\n\n".join(retrieved) if retrieved else ""
 
